@@ -8,12 +8,17 @@ type TResponseData<T> = {
 };
 
 const sendResponse = <T>(res: Response, params: TResponseData<T>) => {
-  res.status(params.statusCode).json({
+  const responseBody: Record<string, any> = {
     status: params.statusCode,
     success: params.success,
     message: params.message,
-    data: params.data || null,
-  });
+  };
+
+  if (params.data !== undefined) {
+    responseBody.data = params.data;
+  }
+
+  res.status(params.statusCode).json(responseBody);
 };
 
 export default sendResponse;

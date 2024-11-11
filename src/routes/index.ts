@@ -15,13 +15,13 @@ const moduleRoutes = [
     route: memberRoutes,
   },
   {
-    path: "/borrow",
+    path: "/",
     route: borrowReturnRoutes,
   },
-  {
-    path: "/return",
-    route: borrowReturnRoutes,
-  },
+  // {
+  //   path: "/return",
+  //   route: borrowReturnRoutes,
+  // },
 ];
 
 moduleRoutes.forEach((route) => router.use(route.path, route.route));
