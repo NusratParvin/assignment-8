@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "borrowRecords" ALTER COLUMN "borrowDate" SET DEFAULT CURRENT_TIMESTAMP,
+ALTER COLUMN "returnDate" DROP NOT NULL;
