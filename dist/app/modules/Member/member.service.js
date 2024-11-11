@@ -41,6 +41,9 @@ const updateMemberIntoDB = (memberId, memberInfo) => __awaiter(void 0, void 0, v
     return result;
 });
 const deleteMemberFromDB = (memberId) => __awaiter(void 0, void 0, void 0, function* () {
+    yield prisma_1.default.member.findUniqueOrThrow({
+        where: { memberId },
+    });
     const result = yield prisma_1.default.member.delete({
         where: { memberId },
     });

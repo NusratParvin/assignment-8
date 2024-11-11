@@ -21,11 +21,8 @@ app.use(globalErrorHandlers_1.default);
 app.use((req, res, next) => {
     res.status(http_status_codes_1.StatusCodes.NOT_FOUND).json({
         success: false,
-        message: "API NOT FOUND!",
-        error: {
-            path: req.originalUrl,
-            message: "Your requested path is not found!",
-        },
+        status: http_status_codes_1.StatusCodes.NOT_FOUND,
+        message: `${req.originalUrl} - Your requested path is not found!`,
     });
 });
 exports.default = app;

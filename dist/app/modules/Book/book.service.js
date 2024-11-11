@@ -41,6 +41,9 @@ const updateBookIntoDB = (bookId, bookInfo) => __awaiter(void 0, void 0, void 0,
     return result;
 });
 const deleteBookFromDB = (bookId) => __awaiter(void 0, void 0, void 0, function* () {
+    yield prisma_1.default.book.findUniqueOrThrow({
+        where: { bookId },
+    });
     const result = yield prisma_1.default.book.delete({
         where: { bookId },
     });

@@ -22,11 +22,8 @@ app.use(globalErrorHandlers);
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(StatusCodes.NOT_FOUND).json({
     success: false,
-    message: "API NOT FOUND!",
-    error: {
-      path: req.originalUrl,
-      message: "Your requested path is not found!",
-    },
+    status: StatusCodes.NOT_FOUND,
+    message: `${req.originalUrl} - Your requested path is not found!`,
   });
 });
 
