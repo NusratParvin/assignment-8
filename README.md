@@ -22,21 +22,46 @@ A backend API for a Library Management System that enables library staff and mem
 
 To set up and run the project locally, follow these steps:
 
-$1
+1. **Clone the repository**:
 
-4.5. **Generate Prisma client**:
+   ```bash
+   git clone https://github.com/NusratParvin/assignment-8.git
+   cd library-management-api
+   ```
 
-```bash
-npx prisma generate
-```
+2. **Install dependencies**:
 
-5. **Start the development server**:
+   ```bash
+   npm install
+   ```
+
+3. **Configure environment variables**:
+
+   - Create a `.env` file in the root directory and add the following variables:
+     ```plaintext
+     DATABASE_URL="your_supabase_database_url"
+     DIRECT_URL="your_direct_database_url"
+     ```
+
+4. **Run database migrations**:
+
+   ```bash
+   npx prisma migrate deploy
+   ```
+
+5. **Generate Prisma client**:
+
+   ```bash
+   npx prisma generate
+   ```
+
+6. **Start the development server**:
 
    ```bash
    npm run dev
    ```
 
-6. **Build and run for production**:
+7. **Build and run for production**:
    ```bash
    npm run vercel-build
    ```
