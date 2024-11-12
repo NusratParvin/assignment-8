@@ -128,7 +128,8 @@ exports.Prisma.BookScalarFieldEnum = {
   genre: 'genre',
   publishedYear: 'publishedYear',
   totalCopies: 'totalCopies',
-  availableCopies: 'availableCopies'
+  availableCopies: 'availableCopies',
+  isDeleted: 'isDeleted'
 };
 
 exports.Prisma.MemberScalarFieldEnum = {
@@ -136,7 +137,8 @@ exports.Prisma.MemberScalarFieldEnum = {
   name: 'name',
   email: 'email',
   phone: 'phone',
-  membershipDate: 'membershipDate'
+  membershipDate: 'membershipDate',
+  isDeleted: 'isDeleted'
 };
 
 exports.Prisma.BorrowRecordScalarFieldEnum = {

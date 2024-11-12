@@ -1107,6 +1107,7 @@ export namespace Prisma {
     publishedYear: number | null
     totalCopies: number | null
     availableCopies: number | null
+    isDeleted: boolean | null
   }
 
   export type BookMaxAggregateOutputType = {
@@ -1116,6 +1117,7 @@ export namespace Prisma {
     publishedYear: number | null
     totalCopies: number | null
     availableCopies: number | null
+    isDeleted: boolean | null
   }
 
   export type BookCountAggregateOutputType = {
@@ -1125,6 +1127,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted: number
     _all: number
   }
 
@@ -1148,6 +1151,7 @@ export namespace Prisma {
     publishedYear?: true
     totalCopies?: true
     availableCopies?: true
+    isDeleted?: true
   }
 
   export type BookMaxAggregateInputType = {
@@ -1157,6 +1161,7 @@ export namespace Prisma {
     publishedYear?: true
     totalCopies?: true
     availableCopies?: true
+    isDeleted?: true
   }
 
   export type BookCountAggregateInputType = {
@@ -1166,6 +1171,7 @@ export namespace Prisma {
     publishedYear?: true
     totalCopies?: true
     availableCopies?: true
+    isDeleted?: true
     _all?: true
   }
 
@@ -1262,6 +1268,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted: boolean
     _count: BookCountAggregateOutputType | null
     _avg: BookAvgAggregateOutputType | null
     _sum: BookSumAggregateOutputType | null
@@ -1290,6 +1297,7 @@ export namespace Prisma {
     publishedYear?: boolean
     totalCopies?: boolean
     availableCopies?: boolean
+    isDeleted?: boolean
     BorrowRecord?: boolean | Book$BorrowRecordArgs<ExtArgs>
     _count?: boolean | BookCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["book"]>
@@ -1301,6 +1309,7 @@ export namespace Prisma {
     publishedYear?: boolean
     totalCopies?: boolean
     availableCopies?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["book"]>
 
   export type BookSelectScalar = {
@@ -1310,6 +1319,7 @@ export namespace Prisma {
     publishedYear?: boolean
     totalCopies?: boolean
     availableCopies?: boolean
+    isDeleted?: boolean
   }
 
   export type BookInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -1330,6 +1340,7 @@ export namespace Prisma {
       publishedYear: number
       totalCopies: number
       availableCopies: number
+      isDeleted: boolean
     }, ExtArgs["result"]["book"]>
     composites: {}
   }
@@ -1730,6 +1741,7 @@ export namespace Prisma {
     readonly publishedYear: FieldRef<"Book", 'Int'>
     readonly totalCopies: FieldRef<"Book", 'Int'>
     readonly availableCopies: FieldRef<"Book", 'Int'>
+    readonly isDeleted: FieldRef<"Book", 'Boolean'>
   }
     
 
@@ -2094,6 +2106,7 @@ export namespace Prisma {
     email: string | null
     phone: string | null
     membershipDate: Date | null
+    isDeleted: boolean | null
   }
 
   export type MemberMaxAggregateOutputType = {
@@ -2102,6 +2115,7 @@ export namespace Prisma {
     email: string | null
     phone: string | null
     membershipDate: Date | null
+    isDeleted: boolean | null
   }
 
   export type MemberCountAggregateOutputType = {
@@ -2110,6 +2124,7 @@ export namespace Prisma {
     email: number
     phone: number
     membershipDate: number
+    isDeleted: number
     _all: number
   }
 
@@ -2120,6 +2135,7 @@ export namespace Prisma {
     email?: true
     phone?: true
     membershipDate?: true
+    isDeleted?: true
   }
 
   export type MemberMaxAggregateInputType = {
@@ -2128,6 +2144,7 @@ export namespace Prisma {
     email?: true
     phone?: true
     membershipDate?: true
+    isDeleted?: true
   }
 
   export type MemberCountAggregateInputType = {
@@ -2136,6 +2153,7 @@ export namespace Prisma {
     email?: true
     phone?: true
     membershipDate?: true
+    isDeleted?: true
     _all?: true
   }
 
@@ -2217,6 +2235,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date
+    isDeleted: boolean
     _count: MemberCountAggregateOutputType | null
     _min: MemberMinAggregateOutputType | null
     _max: MemberMaxAggregateOutputType | null
@@ -2242,6 +2261,7 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     membershipDate?: boolean
+    isDeleted?: boolean
     BorrowRecord?: boolean | Member$BorrowRecordArgs<ExtArgs>
     _count?: boolean | MemberCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["member"]>
@@ -2252,6 +2272,7 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     membershipDate?: boolean
+    isDeleted?: boolean
   }, ExtArgs["result"]["member"]>
 
   export type MemberSelectScalar = {
@@ -2260,6 +2281,7 @@ export namespace Prisma {
     email?: boolean
     phone?: boolean
     membershipDate?: boolean
+    isDeleted?: boolean
   }
 
   export type MemberInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2279,6 +2301,7 @@ export namespace Prisma {
       email: string
       phone: string
       membershipDate: Date
+      isDeleted: boolean
     }, ExtArgs["result"]["member"]>
     composites: {}
   }
@@ -2678,6 +2701,7 @@ export namespace Prisma {
     readonly email: FieldRef<"Member", 'String'>
     readonly phone: FieldRef<"Member", 'String'>
     readonly membershipDate: FieldRef<"Member", 'DateTime'>
+    readonly isDeleted: FieldRef<"Member", 'Boolean'>
   }
     
 
@@ -3985,7 +4009,8 @@ export namespace Prisma {
     genre: 'genre',
     publishedYear: 'publishedYear',
     totalCopies: 'totalCopies',
-    availableCopies: 'availableCopies'
+    availableCopies: 'availableCopies',
+    isDeleted: 'isDeleted'
   };
 
   export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
@@ -3996,7 +4021,8 @@ export namespace Prisma {
     name: 'name',
     email: 'email',
     phone: 'phone',
-    membershipDate: 'membershipDate'
+    membershipDate: 'membershipDate',
+    isDeleted: 'isDeleted'
   };
 
   export type MemberScalarFieldEnum = (typeof MemberScalarFieldEnum)[keyof typeof MemberScalarFieldEnum]
@@ -4071,6 +4097,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -4111,6 +4144,7 @@ export namespace Prisma {
     publishedYear?: IntFilter<"Book"> | number
     totalCopies?: IntFilter<"Book"> | number
     availableCopies?: IntFilter<"Book"> | number
+    isDeleted?: BoolFilter<"Book"> | boolean
     BorrowRecord?: BorrowRecordListRelationFilter
   }
 
@@ -4121,6 +4155,7 @@ export namespace Prisma {
     publishedYear?: SortOrder
     totalCopies?: SortOrder
     availableCopies?: SortOrder
+    isDeleted?: SortOrder
     BorrowRecord?: BorrowRecordOrderByRelationAggregateInput
   }
 
@@ -4134,6 +4169,7 @@ export namespace Prisma {
     publishedYear?: IntFilter<"Book"> | number
     totalCopies?: IntFilter<"Book"> | number
     availableCopies?: IntFilter<"Book"> | number
+    isDeleted?: BoolFilter<"Book"> | boolean
     BorrowRecord?: BorrowRecordListRelationFilter
   }, "bookId">
 
@@ -4144,6 +4180,7 @@ export namespace Prisma {
     publishedYear?: SortOrder
     totalCopies?: SortOrder
     availableCopies?: SortOrder
+    isDeleted?: SortOrder
     _count?: BookCountOrderByAggregateInput
     _avg?: BookAvgOrderByAggregateInput
     _max?: BookMaxOrderByAggregateInput
@@ -4161,6 +4198,7 @@ export namespace Prisma {
     publishedYear?: IntWithAggregatesFilter<"Book"> | number
     totalCopies?: IntWithAggregatesFilter<"Book"> | number
     availableCopies?: IntWithAggregatesFilter<"Book"> | number
+    isDeleted?: BoolWithAggregatesFilter<"Book"> | boolean
   }
 
   export type MemberWhereInput = {
@@ -4172,6 +4210,7 @@ export namespace Prisma {
     email?: StringFilter<"Member"> | string
     phone?: StringFilter<"Member"> | string
     membershipDate?: DateTimeFilter<"Member"> | Date | string
+    isDeleted?: BoolFilter<"Member"> | boolean
     BorrowRecord?: BorrowRecordListRelationFilter
   }
 
@@ -4181,6 +4220,7 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     membershipDate?: SortOrder
+    isDeleted?: SortOrder
     BorrowRecord?: BorrowRecordOrderByRelationAggregateInput
   }
 
@@ -4193,6 +4233,7 @@ export namespace Prisma {
     name?: StringFilter<"Member"> | string
     phone?: StringFilter<"Member"> | string
     membershipDate?: DateTimeFilter<"Member"> | Date | string
+    isDeleted?: BoolFilter<"Member"> | boolean
     BorrowRecord?: BorrowRecordListRelationFilter
   }, "memberId" | "email">
 
@@ -4202,6 +4243,7 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     membershipDate?: SortOrder
+    isDeleted?: SortOrder
     _count?: MemberCountOrderByAggregateInput
     _max?: MemberMaxOrderByAggregateInput
     _min?: MemberMinOrderByAggregateInput
@@ -4216,6 +4258,7 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Member"> | string
     phone?: StringWithAggregatesFilter<"Member"> | string
     membershipDate?: DateTimeWithAggregatesFilter<"Member"> | Date | string
+    isDeleted?: BoolWithAggregatesFilter<"Member"> | boolean
   }
 
   export type BorrowRecordWhereInput = {
@@ -4283,6 +4326,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted?: boolean
     BorrowRecord?: BorrowRecordCreateNestedManyWithoutBookInput
   }
 
@@ -4293,6 +4337,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted?: boolean
     BorrowRecord?: BorrowRecordUncheckedCreateNestedManyWithoutBookInput
   }
 
@@ -4303,6 +4348,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     BorrowRecord?: BorrowRecordUpdateManyWithoutBookNestedInput
   }
 
@@ -4313,6 +4359,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     BorrowRecord?: BorrowRecordUncheckedUpdateManyWithoutBookNestedInput
   }
 
@@ -4323,6 +4370,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted?: boolean
   }
 
   export type BookUpdateManyMutationInput = {
@@ -4332,6 +4380,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BookUncheckedUpdateManyInput = {
@@ -4341,6 +4390,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type MemberCreateInput = {
@@ -4349,6 +4399,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date | string
+    isDeleted?: boolean
     BorrowRecord?: BorrowRecordCreateNestedManyWithoutMemberInput
   }
 
@@ -4358,6 +4409,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date | string
+    isDeleted?: boolean
     BorrowRecord?: BorrowRecordUncheckedCreateNestedManyWithoutMemberInput
   }
 
@@ -4367,6 +4419,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     BorrowRecord?: BorrowRecordUpdateManyWithoutMemberNestedInput
   }
 
@@ -4376,6 +4429,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
     BorrowRecord?: BorrowRecordUncheckedUpdateManyWithoutMemberNestedInput
   }
 
@@ -4385,6 +4439,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date | string
+    isDeleted?: boolean
   }
 
   export type MemberUpdateManyMutationInput = {
@@ -4393,6 +4448,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type MemberUncheckedUpdateManyInput = {
@@ -4401,6 +4457,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BorrowRecordCreateInput = {
@@ -4483,6 +4540,11 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type BorrowRecordListRelationFilter = {
     every?: BorrowRecordWhereInput
     some?: BorrowRecordWhereInput
@@ -4500,6 +4562,7 @@ export namespace Prisma {
     publishedYear?: SortOrder
     totalCopies?: SortOrder
     availableCopies?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type BookAvgOrderByAggregateInput = {
@@ -4515,6 +4578,7 @@ export namespace Prisma {
     publishedYear?: SortOrder
     totalCopies?: SortOrder
     availableCopies?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type BookMinOrderByAggregateInput = {
@@ -4524,6 +4588,7 @@ export namespace Prisma {
     publishedYear?: SortOrder
     totalCopies?: SortOrder
     availableCopies?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type BookSumOrderByAggregateInput = {
@@ -4566,6 +4631,14 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -4583,6 +4656,7 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     membershipDate?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type MemberMaxOrderByAggregateInput = {
@@ -4591,6 +4665,7 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     membershipDate?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type MemberMinOrderByAggregateInput = {
@@ -4599,6 +4674,7 @@ export namespace Prisma {
     email?: SortOrder
     phone?: SortOrder
     membershipDate?: SortOrder
+    isDeleted?: SortOrder
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -4703,6 +4779,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type BorrowRecordUpdateManyWithoutBookNestedInput = {
@@ -4836,6 +4916,11 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -4878,6 +4963,14 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -5039,6 +5132,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted?: boolean
   }
 
   export type BookUncheckedCreateWithoutBorrowRecordInput = {
@@ -5048,6 +5142,7 @@ export namespace Prisma {
     publishedYear: number
     totalCopies: number
     availableCopies: number
+    isDeleted?: boolean
   }
 
   export type BookCreateOrConnectWithoutBorrowRecordInput = {
@@ -5061,6 +5156,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date | string
+    isDeleted?: boolean
   }
 
   export type MemberUncheckedCreateWithoutBorrowRecordInput = {
@@ -5069,6 +5165,7 @@ export namespace Prisma {
     email: string
     phone: string
     membershipDate: Date | string
+    isDeleted?: boolean
   }
 
   export type MemberCreateOrConnectWithoutBorrowRecordInput = {
@@ -5094,6 +5191,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BookUncheckedUpdateWithoutBorrowRecordInput = {
@@ -5103,6 +5201,7 @@ export namespace Prisma {
     publishedYear?: IntFieldUpdateOperationsInput | number
     totalCopies?: IntFieldUpdateOperationsInput | number
     availableCopies?: IntFieldUpdateOperationsInput | number
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type MemberUpsertWithoutBorrowRecordInput = {
@@ -5122,6 +5221,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type MemberUncheckedUpdateWithoutBorrowRecordInput = {
@@ -5130,6 +5230,7 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phone?: StringFieldUpdateOperationsInput | string
     membershipDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type BorrowRecordCreateManyBookInput = {

@@ -6,26 +6,37 @@ const createMemberIntoDB = async (payload: Member) => {
     data: payload,
   });
 
-  return result;
+  const { isDeleted, ...rest } = result;
+  return rest;
 };
 
 const getAllMemberFromDB = async () => {
-  const result = await prisma.member.findMany();
+  const result = await prisma.member.findMany({
+    where: { isDeleted: false },
+    select: {
+      memberId: true,
+      name: true,
+      email: true,
+      phone: true,
+      membershipDate: true,
+    },
+  });
 
   return result;
 };
 
 const getMemberByIdFromDB = async (memberId: string) => {
   const result = await prisma.member.findFirstOrThrow({
-    where: { memberId },
+    where: { memberId, isDeleted: false },
   });
 
-  return result;
+  const { isDeleted, ...rest } = result;
+  return rest;
 };
 
 const updateMemberIntoDB = async (memberId: string, memberInfo: any) => {
   await prisma.member.findUniqueOrThrow({
-    where: { memberId },
+    where: { memberId, isDeleted: false },
   });
 
   const result = await prisma.member.update({
@@ -33,18 +44,38 @@ const updateMemberIntoDB = async (memberId: string, memberInfo: any) => {
     data: memberInfo,
   });
 
-  return result;
+  const { isDeleted, ...rest } = result;
+  return rest;
 };
 
 const deleteMemberFromDB = async (memberId: string) => {
+  // await prisma.member.findUniqueOrThrow({
+  //   where: { memberId, isDeleted: false },
+  // });
+
+  // const result = await prisma.member.update({
+  //   where: { memberId },
+  //   data: { isDeleted: true },
+  // });
+
+  // return result;
+
   await prisma.member.findUniqueOrThrow({
-    where: { memberId },
+    where: { memberId, isDeleted: false },
   });
 
-  const result = await prisma.member.delete({
-    where: { memberId },
-  });
+  const result = await prisma.$transaction(async (ts) => {
+    // soft delete on the member
+    await ts.member.update({
+      where: { memberId },
+      data: { isDeleted: true },
+    });
 
+    // hard delete on all related borrow records
+    await prisma.borrowRecord.deleteMany({
+      where: { memberId },
+    });
+  });
   return result;
 };
 

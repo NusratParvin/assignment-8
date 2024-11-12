@@ -22,6 +22,7 @@ model Book {
   publishedYear   Int
   totalCopies     Int
   availableCopies Int
+  isDeleted       Boolean        @default(false)
   BorrowRecord    BorrowRecord[]
 
   @@map("books")
@@ -33,6 +34,7 @@ model Member {
   email          String         @unique
   phone          String
   membershipDate DateTime
+  isDeleted      Boolean        @default(false)
   BorrowRecord   BorrowRecord[]
 
   @@map("members")

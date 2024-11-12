@@ -31,12 +31,12 @@ const createBorrowIntoDB = (borrowInfo) => __awaiter(void 0, void 0, void 0, fun
     const book = yield prisma_1.default.book.findUniqueOrThrow({
         where: { bookId },
     });
-    if (book.availableCopies <= 0) {
+    if (book.availableCopies <= 0 || book.isDeleted == true) {
         throw new Error("Book not available for borrowing");
     }
     // Check if the member exists
     yield prisma_1.default.member.findUniqueOrThrow({
-        where: { memberId },
+        where: { memberId, isDeleted: false },
     });
     const result = yield prisma_1.default.$transaction((ts) => __awaiter(void 0, void 0, void 0, function* () {
         // Create the BorrowRecord
@@ -86,7 +86,7 @@ const returnBookIntoDB = (borrowId) => __awaiter(void 0, void 0, void 0, functio
 });
 const getOverdueBorrowListFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const currentDate = new Date();
-    // Retrieve all borrow records with overdue logic applied in JavaScript.
+    // Retrieve all borrow records which extends 14 days
     const overdueRecords = yield prisma_1.default.borrowRecord.findMany({
         where: {
             borrowDate: {

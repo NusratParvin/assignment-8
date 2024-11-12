@@ -8,13 +8,13 @@ const createBorrowIntoDB = async (borrowInfo: any) => {
     where: { bookId },
   });
 
-  if (book.availableCopies <= 0) {
+  if (book.availableCopies <= 0 || book.isDeleted == true) {
     throw new Error("Book not available for borrowing");
   }
 
   // Check if the member exists
   await prisma.member.findUniqueOrThrow({
-    where: { memberId },
+    where: { memberId, isDeleted: false },
   });
 
   const result = await prisma.$transaction(async (ts) => {
@@ -74,7 +74,7 @@ const returnBookIntoDB = async (borrowId: string) => {
 const getOverdueBorrowListFromDB = async () => {
   const currentDate = new Date();
 
-  // Retrieve all borrow records with overdue logic applied in JavaScript.
+  // Retrieve all borrow records which extends 14 days
   const overdueRecords = await prisma.borrowRecord.findMany({
     where: {
       borrowDate: {
